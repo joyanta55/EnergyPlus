@@ -8,13 +8,13 @@ without `sudo`, you are good to go.
 
 Run the following command to build the docker image
 ```
-    docker build --no-cache -t energyplus .
+docker build --no-cache -t energyplus .
 ```
 
 To test
 
 ```
-    docker run energyplus -h
+docker run energyplus -h
 ```
 ### To convert an IDF file located in `/tmp` directory
 
