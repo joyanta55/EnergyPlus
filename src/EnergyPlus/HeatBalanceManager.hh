@@ -179,6 +179,8 @@ namespace HeatBalanceManager {
 
     void InitConductionTransferFunctions(EnergyPlusData &state);
 
+    void GetRackComponentData(EnergyPlusData &state, bool &ErrorsFound); // Read Rack data from input file
+
 } // namespace HeatBalanceManager
 
 struct HeatBalanceMgrData : BaseGlobalStruct

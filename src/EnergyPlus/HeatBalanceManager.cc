@@ -272,6 +272,8 @@ namespace HeatBalanceManager {
 
         GetBuildingData(state, ErrorsFound); // Read building data from input file
 
+        GetRackComponentData(state, ErrorsFound); // Read Rack data from input file
+
         DataSurfaces::GetVariableAbsorptanceSurfaceList(state);
 
         GetIncidentSolarMultiplier(state, ErrorsFound);
@@ -2255,6 +2257,27 @@ namespace HeatBalanceManager {
                 }
             }
         }
+    }
+
+
+    void GetRackComponentData(EnergyPlusData &state, bool &ErrorsFound) // If errors found in input
+    {
+
+        // SUBROUTINE INFORMATION:
+        //       AUTHOR         Joyanta Biswas
+        //       DATE WRITTEN   June 2025
+
+        // PURPOSE OF THIS SUBROUTINE:
+        // load input data for Rack component (i.e. GPU, CPU, NIC etc.)
+
+        // METHODOLOGY EMPLOYED:
+        // The GetObjectItem routines are employed to retrieve the data.
+
+        // SolarShading::GetShadowingInput(state);
+
+        // GetZoneData(state, ErrorsFound); // Read Zone data from input file
+
+        // SurfaceGeometry::SetupZoneGeometry(state, ErrorsFound);
     }
 
     void ProcessZoneData(EnergyPlusData &state,

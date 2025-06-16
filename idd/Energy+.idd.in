@@ -108147,3 +108147,47 @@ PythonPlugin:OutputVariable,
        \note Enter a user-defined subcategory for this metered output
        \type alpha
        \retaincase
+
+
+Rack:Component,
+       \memo Custom object for energy modeling on GPU,CPU,NIC loads in a rack.
+   A1, \field Name
+       \required-field
+       \type alpha
+   A2, \field Zone Name
+       \required-field
+       \type alpha
+       \object-list ZoneNames
+   N1, \field GPU Power [W]
+       \required-field
+       \type real
+       \units W
+   N2, \field CPU Power [W]
+       \required-field
+       \type real
+       \units W
+   N3, \field NIC Power [W]
+       \required-field
+       \type real
+       \units W
+   N4, \field Fraction Latent
+       \default 0.0
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+   N5, \field Fraction Radiant
+       \default 0.0
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+   N6, \field Fraction Lost
+       \default 0.0
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+   A3, \field GPU Usage Schedule Name
+       \type object-list
+       \object-list ScheduleNames
+   A4, \field CPU Usage Schedule Name
+       \type object-list
+       \object-list ScheduleNames

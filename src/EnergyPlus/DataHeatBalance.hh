@@ -1756,6 +1756,20 @@ namespace DataHeatBalance {
         Real64 SumToutMinusTSup = 0.0; // Denominator for zone-level sensible heat index (SHI)
     };
 
+    // For Rack Component
+    struct RackComponentData {
+        std::string Name;
+        int ZoneNum;
+        Real64 GPUPower;
+        Real64 CPUPower;
+        Real64 NICPower;
+        Real64 FracLatent;
+        Real64 FracRadiant;
+        Real64 FracLost;
+        std::string EndUseSubcategory;
+};
+
+
     // Functions
 
     void SetZoneOutBulbTempAt(EnergyPlusData &state);
@@ -2041,6 +2055,7 @@ struct HeatBalanceData : BaseGlobalStruct
     EPVector<DataHeatBalance::ZoneMassConservationData> MassConservation;
     DataHeatBalance::ZoneAirMassFlowConservation ZoneAirMassFlow;
     EPVector<DataHeatBalance::ZoneLocalEnvironmentData> ZoneLocalEnvironment;
+    EPVector<DataHeatBalance::RackComponentData> ZoneRackComponent; // For Rack Component
     bool MundtFirstTimeFlag = true;
     EPVector<std::string> spaceTypes;
     EPVector<DataHeatBalance::ExtVentedCavityStruct> ExtVentedCavity;
