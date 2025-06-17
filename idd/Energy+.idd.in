@@ -108158,29 +108158,39 @@ Rack:Component,
        \required-field
        \type alpha
        \object-list ZoneNames
-   N1, \field GPU Power [W]
+   N1, \field GPU Idle Power [W]
        \required-field
        \type real
        \units W
-   N2, \field CPU Power [W]
+   N2, \field GPU Active Power [W]
        \required-field
        \type real
        \units W
-   N3, \field NIC Power [W]
+   N3, \field GPU Core Total
+       \required-field
+       \type integer
+   N4, \field CPU Idle Power [W]
        \required-field
        \type real
        \units W
-   N4, \field Fraction Latent
+   N5, \field CPU Active Power [W]
+       \required-field
+       \type real
+       \units W
+   N6, \field CPU Core Total
+       \required-field
+       \type integer
+   N7, \field Fraction Latent
        \default 0.0
        \type real
        \minimum 0.0
        \maximum 1.0
-   N5, \field Fraction Radiant
+   N8, \field Fraction Radiant
        \default 0.0
        \type real
        \minimum 0.0
        \maximum 1.0
-   N6, \field Fraction Lost
+   N9, \field Fraction Lost
        \default 0.0
        \type real
        \minimum 0.0
@@ -108191,3 +108201,48 @@ Rack:Component,
    A4, \field CPU Usage Schedule Name
        \type object-list
        \object-list ScheduleNames
+   A5, \field Rack Usage Schedule Name
+       \type object-list
+       \object-list ScheduleNames
+   N10,\field Cost Per Watt in USD
+       \default 0.0
+       \type real
+       \minimum 0.0
+   N11,\field Fan Power [W]
+       \type real
+       \default 0.0
+       \units W
+   N12,\field Fan Fraction Latent
+       \type real
+       \default 0.0
+       \minimum 0.0
+       \maximum 1.0
+   N13,\field Fan Fraction Radiant
+       \type real
+       \default 0.0
+       \minimum 0.0
+       \maximum 1.0
+   N14,\field Fan Fraction Lost
+       \type real
+       \default 0.0
+       \minimum 0.0
+       \maximum 1.0
+   N15,\field NIC Count
+       \type integer
+       \default 0
+       \minimum 0
+   N16,\field NIC Idle Power [W]
+       \required-field
+       \type real
+       \units W
+   N17,\field NIC Active Power [W]
+       \required-field
+       \type real
+       \units W
+   N18,\field NIC Average Utilization Percentage
+       \type real
+       \default 0.0
+       \minimum 0.0
+       \maximum 100.0
+   
+   
