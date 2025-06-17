@@ -1,0 +1,169 @@
+{
+    "Building": {
+        "MyBuilding": {
+            "loads_convergence_tolerance_value": 0.04,
+            "maximum_number_of_warmup_days": 25,
+            "north_axis": 0.0,
+            "solar_distribution": "FullExterior",
+            "temperature_convergence_tolerance_value": 0.4,
+            "terrain": "Suburbs"
+        }
+    },
+    "ElectricEquipment": {
+        "ServerRack1": {
+            "design_level": 10,
+            "design_level_calculation_method": "Watts/Area",
+            "fraction_latent": 0.0,
+            "schedule_name": "EquipmentSched",
+            "watts_per_floor_area": 0.8,
+            "watts_per_person": 0.2,
+            "zone_or_zonelist_or_space_or_spacelist_name": "ServerZone"
+        }
+    },
+    "GlobalGeometryRules": {
+        "GlobalGeometryRules 1": {
+            "coordinate_system": "Relative",
+            "starting_vertex_position": "UpperLeftCorner",
+            "vertex_entry_direction": "Counterclockwise"
+        }
+    },
+    "Rack:Component": {
+        "Simple_Rack": {
+            "cost_per_watt_in_usd": 1.2,
+            "cpu_active_power_w_": 1200,
+            "cpu_core_total": 8,
+            "cpu_idle_power_w_": 12,
+            "cpu_usage_schedule_name": "CPUUsageSchedule",
+            "fan_fraction_latent": 0.0,
+            "fan_fraction_lost": 0.0,
+            "fan_fraction_radiant": 0.0,
+            "fan_power_w_": 150,
+            "fraction_latent": 0,
+            "fraction_lost": 0.0,
+            "fraction_radiant": 0.1,
+            "gpu_active_power_w_": 6000,
+            "gpu_core_total": 2,
+            "gpu_idle_power_w_": 60,
+            "gpu_usage_schedule_name": "GPUUsageSchedule",
+            "nic_active_power_w_": 3,
+            "nic_average_utilization": 15,
+            "nic_count": 10,
+            "nic_idle_power_w_": 5,
+            "rack_usage_schedule_name": "RackUsageSchedule",
+            "zone_name": "Server_Zone"
+        }
+    },
+    "Schedule:Compact": {
+        "CPUUsageSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 09:00"
+                },
+                {
+                    "field": 0.7
+                },
+                {
+                    "field": "Until: 18:00"
+                },
+                {
+                    "field": 1.0
+                },
+                {
+                    "field": "Until: 22:00"
+                },
+                {
+                    "field": 0.3
+                }
+            ],
+            "schedule_type_limits_name": "AnyNumber"
+        },
+        "GPUUsageSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 08:00"
+                },
+                {
+                    "field": 0.2
+                },
+                {
+                    "field": "Until: 18:00"
+                },
+                {
+                    "field": 1.0
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 0.3
+                }
+            ],
+            "schedule_type_limits_name": "AnyNumber"
+        },
+        "RackUsageSchedule": {
+            "data": [
+                {
+                    "field": "Through: 12/31"
+                },
+                {
+                    "field": "For: AllDays"
+                },
+                {
+                    "field": "Until: 24:00"
+                },
+                {
+                    "field": 1.0
+                }
+            ],
+            "schedule_type_limits_name": "AnyNumber"
+        }
+    },
+    "ScheduleTypeLimits": {
+        "AnyNumber": {
+            "lower_limit_value": -100,
+            "numeric_type": "Continuous",
+            "upper_limit_value": 100
+        }
+    },
+    "Version": {
+        "Version 1": {
+            "version_identifier": "25.2"
+        }
+    },
+    "Zone": {
+        "Server_Zone": {
+            "": [
+                {},
+                {},
+                {}
+            ],
+            "ceiling_height": 3.0,
+            "direction_of_relative_north": 0.0,
+            "multiplier": 1,
+            "type": 1,
+            "volume": 1.0,
+            "x_origin": 0.0,
+            "y_origin": 0.0,
+            "z_origin": 0.0
+        }
+    },
+    "ZoneHVAC:EquipmentConnections": {
+        "ZoneHVAC:EquipmentConnections 1": {
+            "zone_air_node_name": "Server_Zone_AirNode",
+            "zone_conditioning_equipment_list_name": "ServerEqList",
+            "zone_name": "Server_Zone"
+        }
+    }
+}
